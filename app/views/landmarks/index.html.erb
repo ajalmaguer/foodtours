@@ -1,0 +1,18 @@
+<h1>Food Landmarks</h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to "New Landmark", new_landmark_path %>
+
+<ul>
+  <% @landmarks.each do |landmark| %>
+    <li>Photo tag goes here with url: <%= landmark.photo %></li>
+    <li><%= landmark.caption %></li>
+    <li><strong>Location:</strong> <%= landmark.location %></li>
+    <li><strong>Address:</strong> <%= landmark.address %></li>
+    <li>By: <%= landmark.user.name %></li>
+    <li></li>
+    <li></li>
+  <% end %>
+
+</ul>

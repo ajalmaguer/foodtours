@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Create a landmark!</h1>
+
+<%= form_for @landmark do |f| %>
+
+    <div>
+        <%= f.label :photo %>
+        <%= f.text_field :photo %>
+    </div>
+
+    <div>
+        <%= f.label :caption %>
+        <%= f.text_field :caption %>
+    </div>
+
+    <div>
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+    </div>
+
+    <div>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+
+    <%= f.submit "Submit" %>
+
+<% end %>
+
+<%= link_to "Back to the list!", root_path %>
