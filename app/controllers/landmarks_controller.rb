@@ -1,7 +1,7 @@
 class LandmarksController < ApplicationController
   before_action(:set_landmark, only: [:show, :edit, :update, :destroy])
   before_action(:authorize, except: [:index, :show])
-  before_action(:only_my_landmark, only: [:edit, :update])
+  before_action(:only_my_landmark, only: [:edit, :update, :destroy])
 
   def index
     @landmarks = Landmark.all.order(:created_at)
