@@ -4,15 +4,19 @@
 
 <%= link_to "New Landmark", new_landmark_path %>
 
-<ul>
-  <% @landmarks.each do |landmark| %>
-    <li>Photo tag goes here with url: <%= landmark.photo %></li>
+<% @landmarks.each do |landmark| %>
+  <ul>
+    <li><%= image_tag(landmark.photo, class:"landmark_pic") %></li>
     <li><%= landmark.caption %></li>
     <li><strong>Location:</strong> <%= landmark.location %></li>
     <li><strong>Address:</strong> <%= landmark.address %></li>
     <li>By: <%= landmark.user.name %></li>
-    <li></li>
-    <li></li>
-  <% end %>
-
-</ul>
+    <li><%= link_to "show", landmark %>
+      <% if current_user && current_user == landmark.user %>
+         | <%= link_to "edit", edit_landmark_path(landmark) %></li>
+      <% else %>
+        </li>
+      <% end %>
+  </ul>
+  </br>
+<% end %>

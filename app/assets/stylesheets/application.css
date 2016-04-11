@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.landmark_pic {
+  width: 200px;
+}

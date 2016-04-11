@@ -1,0 +1,25 @@
+<%= form_for @landmark do |f| %>
+
+    <div>
+        <%= f.label :photo %>
+        <%= f.text_field :photo %>
+    </div>
+
+    <div>
+        <%= f.label :caption %>
+        <%= f.text_field :caption %>
+    </div>
+
+    <div>
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+    </div>
+
+    <div>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+
+    <%= f.submit "Submit" %>
+
+<% end %>

@@ -1,0 +1,11 @@
+<ul>
+<li>Photo tag goes here with url: <%= @landmark.photo %></li>
+<li><%= @landmark.caption %></li>
+<li><strong>Location:</strong> <%= @landmark.location %></li>
+<li><strong>Address:</strong> <%= @landmark.address %></li>
+<li>By: <%= @landmark.user.name %></li>
+<li></li>
+<li></li>
+</ul>
+
+<%= link_to "back", root_path %>
