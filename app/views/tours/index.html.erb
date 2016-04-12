@@ -10,7 +10,18 @@
   <div class="tour">
     <div>Name: <%= tour.name %></div>
     <div>User: <%= tour.user.name %></div>
+    <div>
+      <% tour.landmarks.each do |landmark| %>
+        <div class="tour-landmark-pic"><%= image_tag landmark.photo %></div>
+      <% end %>
+
+    </div>
+
+
+
     <div><%= link_to( "show", tour_path(tour)) %></div>
+
+
     <% if current_user && current_user == tour.user %>
       <div><%= link_to( "edit", edit_tour_path(tour)) %></div>
     <% end %>

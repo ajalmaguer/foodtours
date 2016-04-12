@@ -7,3 +7,14 @@
   height: 200px;
   border: 1px solid red;
 }
+
+.tour-landmark-pic {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.tour-landmark-pic img {
+  height: 100%;
+}

@@ -1,6 +1,10 @@
 <div class="tour">
     <div>Name: <%= @tour.name %></div>
     <div>User: <%= @tour.user.name %></div>
+    <% @tour.landmarks.each do |landmark| %>
+        <div class="tour-landmark-pic"><%= image_tag landmark.photo %></div>
+    <% end %>
+
 </div>
 <% if current_user && current_user == @tour.user %>
   <%= link_to "edit", edit_tour_path %> |
