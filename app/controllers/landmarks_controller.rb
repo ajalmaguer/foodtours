@@ -54,7 +54,18 @@ class LandmarksController < ApplicationController
     end
 
     def get_tours
-      @tours = Tour.where(:user => current_user)
+      @user_tours = Tour.where(:user => current_user)
+      # loop through user tours (@tours)
+        # for each tour loop through landmark tours, and chec
+        @available_tours = []
+        @user_tours.each do |tour|
+          begin
+            tour.landmarks.find(params[:id])
+          rescue
+            @available_tours << tour
+          end
+        end
+
     end
 
     def landmark_params

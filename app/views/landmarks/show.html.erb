@@ -8,8 +8,14 @@
 <li>By: <%= @landmark.user.name %></li>
 <% if current_user %>
 
+  <% @user_tours.each do |tour| %>
+    <div>user tours are:
+    <%= tour.name %>
+
+  <% end %>
+    <div>
   <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
-    <li>Add to tour: <%= collection_select(:tour, :tour_id, @tours, :id, :name) %>
+    <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
     <%= submit_tag("Add to Tour") %>
   <% end %>
 

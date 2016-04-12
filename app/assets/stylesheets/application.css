@@ -14,3 +14,18 @@
  *= require_self
  */
 
+body {
+  padding-top: 30px;
+}
+
+.logo-img {
+  width:100px;
+  z-index: 200;
+}
+.logo-img img{
+  width: 100%;
+  position: relative;
+  z-index: 1050;
+}
+
+

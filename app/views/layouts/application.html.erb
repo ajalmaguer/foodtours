@@ -4,10 +4,15 @@
   <title>Foodtours</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p>
+
+<div class="container">
+<div class="logo-img"><%= image_tag "logo.png" %></div>
+
+<div class="navbar navbar-default navbar-fixed-top">
   <%= link_to "Home", root_path %>
   |
   <% if current_user %>
@@ -21,11 +26,13 @@
   <% end %>
   |
   <%= link_to "All Users", users_path %>
-</p>
+</div>
 <h1>Food Tours</h1>
 
 
-<%= yield %>
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
