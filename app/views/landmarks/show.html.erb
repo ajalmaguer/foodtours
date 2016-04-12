@@ -1,11 +1,28 @@
 <ul>
-<li>Photo tag goes here with url: <%= @landmark.photo %></li>
+<div class="landmark-pic">
+        <%= image_tag(@landmark.photo) %>
+</div>
 <li><%= @landmark.caption %></li>
 <li><strong>Location:</strong> <%= @landmark.location %></li>
 <li><strong>Address:</strong> <%= @landmark.address %></li>
 <li>By: <%= @landmark.user.name %></li>
-<li></li>
-<li></li>
+<% if current_user %>
+
+  <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
+    <li>Add to tour: <%= collection_select(:tour, :tour_id, @tours, :id, :name) %>
+    <%= submit_tag("Add to Tour") %>
+  <% end %>
+
+<% end %>
+
+</li>
 </ul>
 
+
+
+<% if current_user && current_user == @landmark.user %>
+  <%= link_to "edit", edit_landmark_path %> |
+<% end %>
+
 <%= link_to "back", root_path %>
+

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
 
   resources :landmarks
+  post "/landmark/:id/add_tour" => "landmarks#add_tour"
+
+  resources :tours
 
   get "/register" , to: "users#index"
   resources :users, only: [:new, :create]

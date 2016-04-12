@@ -4,9 +4,14 @@
 
 <%= link_to "New Landmark", new_landmark_path %>
 
+
 <% @landmarks.each do |landmark| %>
   <ul>
-    <li><%= image_tag(landmark.photo, class:"landmark_pic") %></li>
+    <li>
+      <div class="landmark-pic">
+        <%= image_tag(landmark.photo) %>
+      </div>
+    </li>
     <li><%= landmark.caption %></li>
     <li><strong>Location:</strong> <%= landmark.location %></li>
     <li><strong>Address:</strong> <%= landmark.address %></li>

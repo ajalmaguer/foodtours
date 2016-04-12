@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
 
     def current_user
-      if session[:user_id]
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      @current_user ||= begin
+        User.find(session[:user_id]) if session[:user_id]
+      rescue
+        session[:user_id] = nil
+        nil
       end
     end
 
@@ -18,6 +21,5 @@ class ApplicationController < ActionController::Base
         redirect_to login_path, alert: 'Not authorized - you must be logged in!'
       end
     end
-
 
 end

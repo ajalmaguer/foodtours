@@ -1,0 +1,9 @@
+<div class="tour">
+    <div>Name: <%= @tour.name %></div>
+    <div>User: <%= @tour.user.name %></div>
+</div>
+<% if current_user && current_user == @tour.user %>
+  <%= link_to "edit", edit_tour_path %> |
+<% end %>
+
+<%= link_to "back", tours_path %>

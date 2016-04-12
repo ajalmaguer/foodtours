@@ -1,5 +1,6 @@
 class LandmarksController < ApplicationController
-  before_action(:set_landmark, only: [:show, :edit, :update, :destroy])
+  before_action(:set_landmark, only: [:show, :edit, :update, :destroy, :add_tour])
+  before_action(:get_tours, only: [:show, :new, :edit, :update])
   before_action(:authorize, except: [:index, :show])
   before_action(:only_my_landmark, only: [:edit, :update, :destroy])
 
@@ -29,7 +30,6 @@ class LandmarksController < ApplicationController
   end
 
   def update
-
     if @landmark.update_attributes(landmark_params)
       redirect_to root_path
     else
@@ -42,12 +42,20 @@ class LandmarksController < ApplicationController
     redirect_to root_path
   end
 
+  def add_tour
+    @landmark.tours << Tour.find(params[:tour][:tour_id])
+    redirect_to root_path
+  end
+
 
   private
     def set_landmark
       @landmark = Landmark.find(params[:id])
     end
 
+    def get_tours
+      @tours = Tour.where(:user => current_user)
+    end
 
     def landmark_params
       params.require(:landmark).permit(:photo, :caption, :location, :address, :user_id)
@@ -55,7 +63,7 @@ class LandmarksController < ApplicationController
 
     def only_my_landmark
       if current_user != @landmark.user
-        redirect_to root_path, notice: "You can only edit your own landmarks"
+        redirect_to root_path, notice: "You can only edit your own landmarks."
       end
     end
 

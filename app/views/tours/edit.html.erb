@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Edit tour</h2>
+
+<%= render "form" %>
+
+
+<%= link_to "Delete", tour_path, method: :delete, data: {confirm: "Are you sure you want to delete this tour?"} %> |
+<%= link_to "Back", tours_path %>

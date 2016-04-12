@@ -14,6 +14,12 @@
  *= require_self
  */
 
-.landmark_pic {
-  width: 200px;
+.landmark-pic {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.landmark-pic img {
+  height: 100%;
 }
