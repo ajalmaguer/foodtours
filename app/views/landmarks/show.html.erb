@@ -1,77 +1,47 @@
 <a href="<%= root_path %>" title="" class="pull-right"><span class="glyphicon glyphicon-remove back-button" aria-hidden="true"></span></a>
+
 <div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="thumbnail">
+        <%= image_tag @landmark.photo %>
 
-<div class="col-sm-6 col-sm-offset-3">
-  <div class="thumbnail">
-      <%= image_tag @landmark.photo %>
-
-      <div class="caption">
-        <p class="by-line">
-          By: <%= @landmark.user.name == current_user.name ? "You": @landmark.user.name %>
-          <% if current_user && current_user == @landmark.user %>
-             | <%= link_to "edit", edit_landmark_path(@landmark) , class: "" %>
-          <% end %>
-        </p>
-        <h3><%= @landmark.caption %></h3>
-        <p><strong><%= @landmark.location %></strong></p>
-        <p><%= @landmark.address %></p>
-
-        <% if @assigned_tours.count > 0 %>
-          <span>In these tours:</span>
-          <ul>
-            <% @assigned_tours.each do |tour| %>
-              <% if tour.user = current_user %>
-                <li><%= link_to "#{tour.name}", tour_path(tour) %> |
-                <%= link_to "X", "/landmark/#{params[:id]}/remove_from_tour/#{tour.id}", method: :delete, data: { confirm: "Are you sure you want to delete this landmark?"} %></li>
-              <% end %>
+        <div class="caption">
+          <p class="by-line">
+            By: <%= @landmark.user.name == current_user.name ? "You": @landmark.user.name %>
+            <% if current_user && current_user == @landmark.user %>
+               | <%= link_to "edit", edit_landmark_path(@landmark) , class: "" %>
             <% end %>
-          </ul>
-        <% else %>
-          <span>You haven't added this to any tours.</span>
-        <% end %>
+          </p>
+          <h3><%= @landmark.caption %></h3>
+          <p><strong><%= @landmark.location %></strong></p>
+          <p><%= @landmark.address %></p>
 
-        <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
-          <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
-          <%= submit_tag("Add to Tour") %>
-        <% end %>
+          <% if @assigned_tours.count > 0 %>
+            <span>In these tours:</span>
+            <ul>
+              <% @assigned_tours.each do |tour| %>
+                <% if tour.user = current_user %>
+                  <li><%= link_to "#{tour.name}", tour_path(tour) %> |
+                  <%= link_to "X", "/landmark/#{params[:id]}/remove_from_tour/#{tour.id}", method: :delete, data: { confirm: "Are you sure you want to delete this landmark?"} %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <span>You haven't added this to any tours.</span>
+          <% end %>
 
-      </div>
+          <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
+            <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
+            <%= submit_tag("Add to Tour") %>
+          <% end %>
 
+        </div>
+
+
+    </div>
 
   </div>
-
 </div>
-
-</div>
-
-
-<ul>
-<div class="landmark-pic">
-        <%= image_tag(@landmark.photo) %>
-</div>
-<li><%= @landmark.caption %></li>
-<li><strong>Location:</strong> <%= @landmark.location %></li>
-<li><strong>Address:</strong> <%= @landmark.address %></li>
-<li>By: <%= @landmark.user.name %></li>
-<% if current_user %>
-
-  <% @user_tours.each do |tour| %>
-    <div>user tours are:
-    <%= tour.name %>
-
-  <% end %>
-    <div>
-
-<% end %>
-
-</li>
-</ul>
-
-
-
-<% if current_user && current_user == @landmark.user %>
-  <%= link_to "edit", edit_landmark_path %> |
-<% end %>
 
 
 

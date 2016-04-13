@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
+
 <div class="row">
-  <%= link_to "New Landmark", new_landmark_path %>
+  <div class="col-sm-2 col-sm-offset-10">
+    <%= link_to "New Landmark", new_landmark_path, class: "btn btn-danger" %>
+  </div>
 </div>
+
+<br>
 
 
 <div class="row grid">
     <% @landmarks.each do |landmark| %>
-    <div class="col-sm-6 col-md-4 tile">
+    <div class="landmark col-sm-6 col-md-4 tile">
       <div class="thumbnail">
-
 
         <a href="<%= landmark_path(landmark) %>" title=""><img src="<%= landmark.photo %>" alt="<%= landmark.caption %>"></a>
 
@@ -17,8 +21,8 @@
           <p><strong><%= landmark.location %></strong></p>
           <p><%= landmark.address %></p>
           <p>
+            By: <%= landmark.user == current_user ? "You": landmark.user.name %>
             <% if current_user && current_user == landmark.user %>
-            By: <%= landmark.user.name == current_user.name ? "You": landmark.user.name %>
                | <%= link_to "edit", edit_landmark_path(landmark) , class: "" %>
             <% end %>
           </p>

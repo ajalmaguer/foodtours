@@ -1,31 +1,37 @@
-<%= form_for @landmark do |f| %>
 
-    <div>
-        <div class="landmark-pic">
-            <%= image_tag(@landmark.photo) %>
-        </div>
-        <%= f.label :photo %>
-        <%= f.file_field :photo, as: :file %>
+<div class="row">
+    <div class="form-group col-sm-6 col-sm-offset-3">
+        <%= form_for @landmark do |f| %>
+
+                <% if @landmark.photo.file? %>
+                <div class="landmark-pic">
+                    <%= image_tag(@landmark.photo) %>
+                </div>
+                <% end %>
+
+            <div class="form-group">
+                <%= f.label :photo %>
+                <%= f.file_field :photo, as: :file%>
+                <p class="help-block">Upload an image here.</p>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :caption %>
+                <%= f.text_field :caption , class: "form-control"%>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :location %>
+                <%= f.text_field :location, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :address %>
+                <%= f.text_field :address, class: "form-control" %>
+            </div>
+
+            <%= f.submit "Submit" , class: "btn btn-primary"%>
+
+        <% end %>
     </div>
-
-    <div>
-        <%= f.label :caption %>
-        <%= f.text_field :caption %>
-    </div>
-
-    <div>
-        <%= f.label :location %>
-        <%= f.text_field :location %>
-    </div>
-
-    <div>
-        <%= f.label :address %>
-        <%= f.text_field :address %>
-    </div>
-
-
-
-
-    <%= f.submit "Submit" %>
-
-<% end %>
+</div>

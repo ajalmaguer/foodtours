@@ -2,19 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .tour {
-  width: 200px;
-  height: 200px;
-  border: 1px solid red;
+  height: 300px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.tour-landmark-pic {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-}
-
-.tour-landmark-pic img {
+.tour .thumbnail {
   height: 100%;
+}
+
+.tour .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.tour a {
+  text-decoration: none;
+}
+
+.tour img {
+
+}
+
+.tour .landmark {
+  margin-bottom: 20px;
 }

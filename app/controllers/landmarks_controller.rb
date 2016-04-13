@@ -5,7 +5,7 @@ class LandmarksController < ApplicationController
   before_action(:only_my_landmark, only: [:edit, :update, :destroy])
 
   def index
-    @landmarks = Landmark.all.order(:created_at)
+    @landmarks = Landmark.all.order(:created_at => :desc)
   end
 
   def show
@@ -50,10 +50,7 @@ class LandmarksController < ApplicationController
   def remove_from_tour
     @tour = Tour.find(params[:tour_id])
     @landmark = @tour.landmarks.find(params[:landmark_id])
-    puts "landmark"
-    puts @landmark.id
-    puts "tour = "
-    puts @tour.id
+
     @tour.landmarks.delete(@landmark)
 
     redirect_to landmark_path(@landmark)

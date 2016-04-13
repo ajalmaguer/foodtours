@@ -1,31 +1,42 @@
-<h2>Tours</h2>
-
 <p id="notice"> <%= notice %></p>
 
+<h2>Tours</h2>
 
-<%= link_to "New Tour", new_tour_path %>
-
-
-<% @tours.each do |tour| %>
-  <div class="tour">
-    <div>Name: <%= tour.name %></div>
-    <div>User: <%= tour.user.name %></div>
-    <div>
-      <% tour.landmarks.each do |landmark| %>
-        <div class="tour-landmark-pic"><%= image_tag landmark.photo %></div>
-      <% end %>
-
-    </div>
-
-
-
-    <div><%= link_to( "show", tour_path(tour)) %></div>
-
-
-    <% if current_user && current_user == tour.user %>
-      <div><%= link_to( "edit", edit_tour_path(tour)) %></div>
-    <% end %>
+<div class="row">
+  <div class="col-sm-2 col-sm-offset-10">
+    <%= link_to "New Tour", new_tour_path, class: "btn btn-danger" %>
   </div>
-<% end %>
+</div>
+
+<br>
+
+
+<div class="row">
+  <% @tours.each do |tour| %>
+    <div class="tour col-sm-6 col-md-3">
+      <div class="thumbnail">
+      <div class="caption">
+          <a href="<%= tour_path(tour) %>" title="">
+            <h4><%= tour.name %></h4>
+          </a>
+          <p>
+              By: <%= tour.user == current_user ? "You": tour.user.name %>
+              <% if current_user && current_user == tour.user %>
+                 | <%= link_to "edit", edit_tour_path(tour) , class: "" %>
+              <% end %>
+          </p>
+      </div>
+        <div class="row">
+          <% tour.landmarks.each do |landmark| %>
+            <div class= "col-xs-6 landmark">
+              <a href="#" ><img src="<%= landmark.photo %>" alt="<%= landmark.caption %>"></a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
 
