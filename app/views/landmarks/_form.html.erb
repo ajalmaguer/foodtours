@@ -5,7 +5,7 @@
             <%= image_tag(@landmark.photo) %>
         </div>
         <%= f.label :photo %>
-        <%= f.text_field :photo %>
+        <%= f.file_field :photo, as: :file %>
     </div>
 
     <div>
@@ -21,10 +21,6 @@
     <div>
         <%= f.label :address %>
         <%= f.text_field :address %>
-    </div>
-
-    <div>
-        <%= f.collection_select(:tours, @tours, :id, :name) %>
     </div>
 
 

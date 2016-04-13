@@ -15,12 +15,14 @@
  */
 
 body {
-  padding-top: 30px;
+  padding-top: 70px;
 }
 
 .logo-img {
-  width:100px;
+  width:120px;
   z-index: 200;
+  margin-right: auto;
+  margin-left: auto;
 }
 .logo-img img{
   width: 100%;

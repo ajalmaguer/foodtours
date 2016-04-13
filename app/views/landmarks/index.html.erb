@@ -1,27 +1,29 @@
-<h2>Food Landmarks</h2>
-
 <p id="notice"><%= notice %></p>
-<div class="col-lg-12">
+<div class="row">
   <%= link_to "New Landmark", new_landmark_path %>
-
 </div>
 
-<div class="row">
-  <% @landmarks.each do |landmark| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="<%= landmark.photo %>" alt="<%= landmark.caption %>">
-      <div class="caption">
-        <h3><%= landmark.caption %></h3>
-        <p><strong><%= landmark.location %></strong></p>
-        <p><%= landmark.address %></p>
 
-        <% if current_user && current_user == landmark.user %>
-           <p><%= link_to "edit", edit_landmark_path(landmark) , class: "btn btn-primary" %></p>
-        <% end %>
+<div class="row grid">
+    <% @landmarks.each do |landmark| %>
+    <div class="col-sm-6 col-md-4 tile">
+      <div class="thumbnail">
 
+
+        <a href="<%= landmark_path(landmark) %>" title=""><img src="<%= landmark.photo %>" alt="<%= landmark.caption %>"></a>
+
+        <div class="caption">
+          <h3><%= landmark.caption %></h3>
+          <p><strong><%= landmark.location %></strong></p>
+          <p><%= landmark.address %></p>
+          <p>
+            By: <%= landmark.user.name == current_user.name ? "You": landmark.user.name %>
+            <% if current_user && current_user == landmark.user %>
+               | <%= link_to "edit", edit_landmark_path(landmark) , class: "" %>
+            <% end %>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
 </div>
