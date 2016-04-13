@@ -17,8 +17,8 @@
           <p><strong><%= landmark.location %></strong></p>
           <p><%= landmark.address %></p>
           <p>
-            By: <%= landmark.user.name == current_user.name ? "You": landmark.user.name %>
             <% if current_user && current_user == landmark.user %>
+            By: <%= landmark.user.name == current_user.name ? "You": landmark.user.name %>
                | <%= link_to "edit", edit_landmark_path(landmark) , class: "" %>
             <% end %>
           </p>

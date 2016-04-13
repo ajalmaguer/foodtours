@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :landmarks
   post "/landmark/:id/add_tour" => "landmarks#add_tour"
+  delete "/landmark/:landmark_id/remove_from_tour/:tour_id" => "landmarks#remove_from_tour"
 
   resources :tours
 

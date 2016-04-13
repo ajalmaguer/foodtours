@@ -44,19 +44,32 @@ class LandmarksController < ApplicationController
 
   def add_tour
     @landmark.tours << Tour.find(params[:tour][:tour_id])
-    redirect_to root_path
+    redirect_to landmark_path(@landmark)
+  end
+
+  def remove_from_tour
+    @tour = Tour.find(params[:tour_id])
+    @landmark = @tour.landmarks.find(params[:landmark_id])
+    puts "landmark"
+    puts @landmark.id
+    puts "tour = "
+    puts @tour.id
+    @tour.landmarks.delete(@landmark)
+
+    redirect_to landmark_path(@landmark)
   end
 
 
   private
     def set_landmark
       @landmark = Landmark.find(params[:id])
+      @assigned_tours = @landmark.tours.where(user: current_user)
     end
 
     def get_tours
       @user_tours = Tour.where(:user => current_user)
       # loop through user tours (@tours)
-        # for each tour loop through landmark tours, and chec
+        #go through user tours and add only the tours that belong to the given landmark
         @available_tours = []
         @user_tours.each do |tour|
           begin
@@ -65,7 +78,6 @@ class LandmarksController < ApplicationController
             @available_tours << tour
           end
         end
-
     end
 
     def landmark_params
