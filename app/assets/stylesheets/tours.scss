@@ -3,9 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+//tours Index template styling
+.tours-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .tour {
-  height: 300px;
-  margin-bottom: 30px;
+  height: 345px;
+  width: 250px;
+  margin: 10px 10px;
   text-align: center;
 }
 
@@ -13,19 +21,62 @@
   height: 100%;
 }
 
-.tour .row {
-  margin-right: 0px;
+.landmark-thumbs-container {
   margin-left: 0px;
+  margin-right: 0px;
 }
 
-.tour a {
-  text-decoration: none;
+.landmark-thumb {
+  border: 2px solid white;
+  border-radius: 2px;
+  padding-bottom: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
-.tour img {
-
+.hover-mask {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 }
 
-.tour .landmark {
-  margin-bottom: 20px;
+//tours Show template styling
+
+.tour-show .landmark {
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom:0px;
 }
+
+.tour-show .landmark > div {
+  height:120px;
+}
+
+.tour-show .landmark > div:first-of-type {
+  padding-left: 0px;
+}
+
+.tour-show .landmark .thumb-image {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

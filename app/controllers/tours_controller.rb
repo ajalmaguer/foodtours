@@ -8,6 +8,9 @@ class ToursController < ApplicationController
   end
 
   def show
+    p "aldskjflaksdjflaskdfjoaskdfjlaskdfjlasdkjflaskdjf"
+    p request.referer
+    @referer = request.referer
   end
 
   def new

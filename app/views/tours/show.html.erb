@@ -1,13 +1,27 @@
-<div class="tour">
-    <div>Name: <%= @tour.name %></div>
-    <div>User: <%= @tour.user.name %></div>
-    <% @tour.landmarks.each do |landmark| %>
-        <div class="tour-landmark-pic"><%= image_tag landmark.photo %></div>
-    <% end %>
-
-</div>
-<% if current_user && current_user == @tour.user %>
-  <%= link_to "edit", edit_tour_path %> |
+<% if @referer %>
+  <a href="<%= @referer %>" title="" class="pull-right"><span class="glyphicon glyphicon-remove back-button" aria-hidden="true"></span></a>
 <% end %>
 
-<%= link_to "back", tours_path %>
+<h3 class="text-center"><%= @tour.name %></h3>
+<h4 class="text-center">By: <%= @tour.user.name %></h4>
+
+<div class="tour-show row">
+  <div class="col-sm-6">
+    second column
+  </div>
+  <div class="col-sm-6">
+    <% @tour.landmarks.each do |landmark| %>
+        <div class="landmark thumbnail row">
+          <div class="col-xs-4">
+            <div class="thumb-image" style="background-image: url(<%= landmark.photo(:medium) %>)"></div>
+          </div>
+          <div class="caption col-xs-8">
+            <p><strong><%= landmark.caption %></strong></p>
+            <p><%= landmark.location %></p>
+            <p><%= landmark.address %></p>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
