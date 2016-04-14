@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.1.0'
 #paperclip gem
 gem "paperclip", "~> 5.0.0.beta1"
 
+#geocoder gem
+gem 'geocoder'
+
 #twitter bootstrap
 gem 'twitter-bootstrap-rails'
 
