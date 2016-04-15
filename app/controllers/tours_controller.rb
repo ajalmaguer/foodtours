@@ -16,7 +16,8 @@ class ToursController < ApplicationController
     @hash = Gmaps4rails.build_markers(@landmarks) do |landmark, marker|
       marker.lat landmark.latitude
       marker.lng landmark.longitude
-      marker.infowindow "<strong>#{landmark.caption}</strong> at #{landmark.location}"
+      marker.infowindow   "<strong>#{landmark.caption}</strong> at #{landmark.location} <br>
+                           <a href='http://maps.google.com/?q=#{landmark.address}' target='_blank'>Open in google maps</a>"
       marker.title landmark.caption
       marker.json({id: landmark.id})
     end

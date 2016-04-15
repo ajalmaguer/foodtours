@@ -27,6 +27,8 @@
 </div>
 
 
+
+
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   var markers
@@ -49,6 +51,7 @@
     $.each(markers, function() {
       if (this.serviceObject.id == id) {
         this.panTo();
+        this.infowindow.open(this.getServiceObject().getMap(), this.getServiceObject());
       }
       else this.serviceObject.setAnimation(null);
     });
@@ -58,6 +61,5 @@
     var landmark = this.id
     Gmaps.selectMarker(landmark)
   })
-
 
 </script>

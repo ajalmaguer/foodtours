@@ -30,14 +30,21 @@
             <span>You haven't added this to any tours.</span>
           <% end %>
 
-          </br>
-          </br>
+          <br>
 
           <% if current_user %>
-            <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
-              <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
-              <%= submit_tag "Add to Tour", class: "btn btn-primary" %>
-            <% end %>
+            <div class = "form-group">
+              <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
+                <div class="input-group">
+                  <%= collection_select(:tour, :tour_id, @available_tours, :id, :name,{prompt: false} ,{class: "form-control"}) %>
+                  <span class="input-group-btn">
+                    <%= submit_tag "Add to Tour", class: "btn btn-default" %>
+                  </span>
+                </div>
+
+              <% end %>
+            </div>
+
           <% else %>
             <p>To save landmarks to your tours, please <%= link_to "sign up", new_user_path %> or <%= link_to "log in.", new_session_path %></p>
           <% end %>
