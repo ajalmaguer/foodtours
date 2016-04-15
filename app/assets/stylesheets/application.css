@@ -18,16 +18,9 @@ body {
   padding-top: 70px;
 }
 
-.logo-img {
-  width:120px;
-  z-index: 200;
-  margin-right: auto;
-  margin-left: auto;
-}
-.logo-img img{
-  width: 100%;
-  position: relative;
-  z-index: 1050;
+.navbar-brand img {
+    height: 252%;
+    margin-top: -15px;
 }
 
 
