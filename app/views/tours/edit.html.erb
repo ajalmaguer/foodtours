@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Edit tour</h2>
+<a href="<%= tours_path %>" title="" class="pull-right"><span class="glyphicon glyphicon-remove back-button" aria-hidden="true"></span></a>
+
+<div class="row">
+  <h2 class="form-group col-sm-6 col-sm-offset-3">Edit tour</h2>
+</div>
+
 
 <%= render "form" %>
 
 
-<%= link_to "Delete", tour_path, method: :delete, data: {confirm: "Are you sure you want to delete this tour?"} %> |
-<%= link_to "Back", tours_path %>
+<div class="row">
+  <div class="form-group col-sm-6 col-sm-offset-3">
+      <%= link_to "Delete", tour_path, method: :delete, data: { confirm: "Are you sure you want to delete this tour?"} , class: "btn btn-danger"%>
+  </div>
+</div>
