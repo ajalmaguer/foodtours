@@ -5,7 +5,11 @@ class LandmarksController < ApplicationController
   before_action(:only_my_landmark, only: [:edit, :update, :destroy])
 
   def index
-    @landmarks = Landmark.all.order(:created_at => :desc)
+    if params[:search].present?
+      @landmarks = Landmark.near(params[:search], 50)
+    else
+      @landmarks = Landmark.all.order(:created_at => :desc)
+    end
   end
 
   def show

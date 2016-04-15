@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-2 col-sm-offset-10">
-    <%= link_to "New Landmark", new_landmark_path, class: "btn btn-danger" %>
+  <div class="col-sm-4">
+    <%= form_tag landmarks_path, :method => :get do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search Landmarks..." %>
+      <span class="input-group-btn">
+        <%= submit_tag "Go", name: nil, class:"btn btn-default" %>
+      </span>
+      </div><!-- /input-group -->
+    <% end %>
+  </div>
+  <div class="col-sm-2 col-sm-offset-6">
+    <%= link_to "New Landmark", new_landmark_path, class: "btn btn-default" %>
   </div>
 </div>
 
