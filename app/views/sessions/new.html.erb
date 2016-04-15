@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-">
+  <div class="col-sm-4 col-sm-offset-2">
+    <%= image_tag "food-tours-full-logo.png", class:"img-responsive" %>
+  </div>
+  <div class="col-sm-4">
     <h2>Login</h2>
     <p id="alert"><%= alert %></p>
     <%= form_tag sessions_path do %>
@@ -13,7 +16,7 @@
       </div>
       <div class="actions"><%= submit_tag "Log in" , class:"btn btn-primary"%></div>
     <% end %>
-
-
+    <br>
+    <p>Not registered? <%= link_to "Sign up here.", new_user_path %></p>
   </div>
 </div>

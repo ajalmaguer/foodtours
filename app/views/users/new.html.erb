@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-">
+  <div class="col-sm-4 col-sm-offset-2">
+    <%= image_tag "food-tours-full-logo.png", class:"img-responsive" %>
+  </div>
+  <div class="col-sm-4 text-">
     <h2>Sign up</h2>
     <%= form_for @user do |f| %>
       <% if @user.errors.any? %>
@@ -31,7 +34,8 @@
         <%= f.password_field :password_confirmation , class:"form-control" %>
       </div>
       <div class="actions"> <%= f.submit "Sign up", class: "btn btn-primary"%></div>
-
     <% end %>
+    <br>
+    <p>Already registered? <%= link_to "Log in here.", new_session_path %></p>
   </div>
 </div>

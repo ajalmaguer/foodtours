@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :tours
 
-  get "/register" , to: "users#index"
+  get "/register" , to: "users#new"
   resources :users, only: [:new, :create]
 
   get "/login", to: "sessions#new"
