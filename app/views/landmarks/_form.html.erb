@@ -3,11 +3,11 @@
     <div class="form-group col-sm-6 col-sm-offset-3">
         <%= form_for @landmark do |f| %>
 
-                <% if @landmark.photo.file? %>
-                <div class="landmark-pic">
-                    <%= image_tag(@landmark.photo) %>
-                </div>
-                <% end %>
+            <% if @landmark.photo.present? %>
+            <div class="landmark-pic">
+                <%= image_tag(@landmark.photo) %>
+            </div>
+            <% end %>
 
             <div class="form-group">
                 <%= f.label :photo %>
