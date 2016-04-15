@@ -39,7 +39,7 @@ imagesLoded.js  | Used in conjunction with masonry.js to "relayout" the page int
 Entitiy Relationship Diagram
 -----------------------------
 
-![erd](https://raw.githubusercontent.com/ajalmaguer/foodtours/master/erd.png)
+![erd](https://raw.githubusercontent.com/ajalmaguer/foodtours/master/erd-2.png)
 
 
 Pivotal Tracker for Food Tours
