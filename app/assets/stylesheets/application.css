@@ -23,7 +23,6 @@ body {
     margin-top: -15px;
 }
 
-
 /*Glyphicons*/
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -36,4 +35,8 @@ body {
 
 .back-button {
   font-size: 200%;
+}
+
+footer {
+  font-size: .8em;
 }
