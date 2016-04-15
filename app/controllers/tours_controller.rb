@@ -8,9 +8,19 @@ class ToursController < ApplicationController
   end
 
   def show
-    p "aldskjflaksdjflaskdfjoaskdfjlaskdfjlasdkjflaskdjf"
-    p request.referer
+    #@referer is the the page you came from. So that the back button on the tour show page will go back to where you came from.
     @referer = request.referer
+
+    @landmarks = @tour.landmarks
+
+    @hash = Gmaps4rails.build_markers(@landmarks) do |landmark, marker|
+      marker.lat landmark.latitude
+      marker.lng landmark.longitude
+      marker.infowindow "<strong>#{landmark.caption}</strong> at #{landmark.location}"
+      marker.title landmark.caption
+      marker.json({id: landmark.id})
+    end
+
   end
 
   def new

@@ -21,9 +21,13 @@ gem "paperclip", "~> 5.0.0.beta1"
 #geocoder gem
 gem 'geocoder'
 
+#google maps for rails
+gem 'gmaps4rails'
+
 #twitter bootstrap
 gem 'twitter-bootstrap-rails'
 
+#amazon web services for file storage
 gem 'aws-sdk'
 
 # Use jquery as the JavaScript library

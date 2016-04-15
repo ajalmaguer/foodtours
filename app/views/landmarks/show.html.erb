@@ -7,7 +7,7 @@
 
         <div class="caption">
           <p class="by-line">
-            By: <%= @landmark.user.name == current_user.name ? "You": @landmark.user.name %>
+            By: <%= @landmark.user == current_user ? "You": @landmark.user.name %>
             <% if current_user && current_user == @landmark.user %>
                | <%= link_to "edit", edit_landmark_path(@landmark) , class: "" %>
             <% end %>
@@ -30,9 +30,16 @@
             <span>You haven't added this to any tours.</span>
           <% end %>
 
-          <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
-            <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
-            <%= submit_tag("Add to Tour") %>
+          </br>
+          </br>
+
+          <% if current_user %>
+            <%= form_tag("/landmark/#{params[:id]}/add_tour", method: "post") do %>
+              <li>Add to tour: <%= collection_select(:tour, :tour_id, @available_tours, :id, :name) %>
+              <%= submit_tag "Add to Tour", class: "btn btn-primary" %>
+            <% end %>
+          <% else %>
+            <p>To save landmarks to your tours, please <%= link_to "sign up", new_user_path %> or <%= link_to "log in.", new_session_path %></p>
           <% end %>
 
         </div>
