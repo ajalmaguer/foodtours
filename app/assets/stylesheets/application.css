@@ -18,9 +18,13 @@ body {
   padding-top: 70px;
 }
 
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .navbar-brand img {
-    height: 252%;
-    margin-top: -15px;
+    height: 100%;
 }
 
 /*Glyphicons*/
