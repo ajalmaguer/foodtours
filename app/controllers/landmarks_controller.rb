@@ -13,6 +13,7 @@ class LandmarksController < ApplicationController
   end
 
   def show
+    @tours = @landmark.tours
   end
 
   def new

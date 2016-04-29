@@ -8,27 +8,4 @@
 
 <br>
 
-
-<div class="tours-container">
-  <% @tours.each do |tour| %>
-    <div class="tour">
-        <div class="thumbnail">
-          <div class="caption">
-            <h4><%= link_to tour.name, tour_path(tour) %></h4>
-            <p>
-              By: <%= tour.user == current_user ? "You" : tour.user.name %>
-              <% if current_user && current_user == tour.user %>
-                | <%= link_to "Edit", edit_tour_path(tour) , class: "edit-button" %>
-              <% end %>
-            </p>
-          </div>
-          <div class="row landmark-thumbs-container">
-            <% tour.landmarks.sample(4).each do |landmark| %>
-              <div class="col-xs-6 landmark-thumb" style="background-image: url(<%= landmark.photo.url(:medium)%>);">
-              </div>
-            <% end %>
-          </div>
-        </div>
-    </div>
-  <% end %>
-</div>
+<%= render "tours" %>
