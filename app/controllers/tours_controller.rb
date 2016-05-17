@@ -20,6 +20,8 @@ class ToursController < ApplicationController
                            <a href='http://maps.google.com/?q=#{landmark.address}' target='_blank'>Open in google maps</a>"
       marker.title landmark.caption
       marker.json({id: landmark.id})
+
+
     end
 
   end

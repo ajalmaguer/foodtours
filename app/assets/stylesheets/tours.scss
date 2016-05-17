@@ -11,7 +11,7 @@
 }
 
 .tour {
-  height: 345px;
+  // height: 345px;
   width: 250px;
   margin: 10px 10px;
   text-align: center;
@@ -53,7 +53,7 @@
 }
 
 .tour-show .landmark > div {
-  height:120px;
+  height:160px;
 }
 
 .tour-show .landmark > div:first-of-type {
@@ -64,6 +64,7 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  background-position: center;
 }
 
 
