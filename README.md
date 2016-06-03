@@ -54,7 +54,7 @@ Installation Instructions
   2. Create the database: `rake db:create`
   3. Migrate the database: `rake db:seed`
   4. Run rails server: `rails s`
-3. Connect to rails server from the brower. I.e. go to `localhost:3000`
+3. Connect to rails server from the browser. I.e. go to `localhost:3000`
 4. To get the file upload working, set up an [Amazon Web Services Account](http://aws.amazon.com/) and save your api key info on your bash profile. Also update your `development.rb` and `production.rb` files. **WARNING: DO NOT PUSH YOUR API KEY INFO TO GITHUB!**
 
 
