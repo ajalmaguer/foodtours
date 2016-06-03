@@ -49,7 +49,7 @@ The project's user stories are documented and managed on pivotal tracker. See th
 Installation Instructions
 ==========================
 1. Clone the repo from your terminal `git clone https://github.com/ajalmaguer/foodtours.git`
-2. Go into the director and perform the following
+2. Go into the directory and perform the following
   1. Install the gems `bundle install`
   2. Create the database: `rake db:create`
   3. Migrate the database: `rake db:seed`
